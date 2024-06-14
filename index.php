@@ -4,8 +4,8 @@ include 'header.php';
 <div id="main-content">
     <h2>All Records</h2>
     <?php
-     $conn = mysqli_connect("localhost","root","","php_crud") or die("Connection failed");
-     $sql = "SELECT * FROM student JOIN studentclass WHERE student.class = studentclass.id";
+     include 'config.php';
+     $sql = "SELECT * FROM student JOIN studentclass WHERE student.sclass = studentclass.cid";
      $result = mysqli_query($conn,$sql) or die("Query Unsuccessful.");
     
      if(mysqli_num_rows($result)>0){
@@ -27,13 +27,13 @@ include 'header.php';
 
             ?>
             <tr>
-                <td><?php echo $row['id'] ?></td>
-                <td><?php echo $row['name'] ?></td>
+                <td><?php echo $row['sid'] ?></td>
+                <td><?php echo $row['sname'] ?></td>
                 <td><?php echo $row['cname'] ?></td>
-                <td><?php echo $row['address'] ?></td>
-                <td><?php echo $row['phone'] ?></td>
+                <td><?php echo $row['saddress'] ?></td>
+                <td><?php echo $row['sphone'] ?></td>
                 <td>
-                    <a href='edit.php?id=<?php echo $row['id'] ?>'>Edit</a>
+                    <a href='edit.php?id=<?php echo $row['sid'] ?>'>Edit</a>
                     <a href='delete-inline.php'>Delete</a>
                 </td>
             </tr>

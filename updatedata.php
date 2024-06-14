@@ -1,14 +1,14 @@
-<?php
-
-$stu_name = $_POST['sname'];
-$stu_address = $_POST['saddress'];
-$stu_class = $_POST['class'];
-$stu_phone = $_POST['sphone'];
+<?php 
 
 include 'config.php';
 
-$sql = "INSERT INTO student (sname,sclass,saddress,sphone) VALUES ('{$stu_name}','{$stu_class}','{$stu_address}','{$stu_phone}')";
-// echo $sql;exit;
+$stu_id = $_POST['sid'];
+$stu_name = $_POST['sname'];
+$stu_address = $_POST['saddress'];
+$stu_class = $_POST['sclass'];
+$stu_phone = $_POST['sphone'];
+
+ $sql = "UPDATE student SET sname = '{$stu_name}', sclass ='{$stu_class}', saddress = '{$stu_address}', sphone = '{$stu_phone}' WHERE sid = {$stu_id}";
 $result =  mysqli_query($conn,$sql);
 
 if($result === true){
@@ -18,6 +18,5 @@ if($result === true){
 }
 
 mysqli_close($conn);
-
 
 ?>
