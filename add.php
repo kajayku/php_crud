@@ -20,7 +20,7 @@
                 $result = mysqli_query($conn,$sql) or die("Query Failed");
                 while($row = mysqli_fetch_assoc($result)){
                 ?>
-                <option value="<?php echo $row['id'] ?>"><?php echo $row['cname']; ?></option>
+                <option value="<?php echo $row['cid'] ?>"><?php echo $row['cname']; ?></option>
 
                 <?php    } ?>
             </select>
